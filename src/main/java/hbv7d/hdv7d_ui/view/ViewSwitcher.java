@@ -1,6 +1,6 @@
 package hbv7d.hdv7d_ui.view;
 
-import hi.vidmot.audioplayer.AudioplayerApplication;
+import hbv7d.hdv7d_ui.MainApplication;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 /**
  * @author Almas Baimagambetov (almaslvl@gmail.com)
@@ -39,7 +40,7 @@ public class ViewSwitcher {
                 System.out.println("Loading from FXML");
 
                 root = FXMLLoader.load(
-                        AudioplayerApplication.class.getResource(view.getFileName())
+                        Objects.requireNonNull(MainApplication.class.getResource(view.getFileName()))
                 );
 
                 cache.put(view, root);
