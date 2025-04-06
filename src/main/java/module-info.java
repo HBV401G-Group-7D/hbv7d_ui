@@ -7,4 +7,6 @@ module hbv7d.hdv7d_ui {
 
     opens hbv7d.hdv7d_ui to javafx.fxml;
     exports hbv7d.hdv7d_ui;
+    exports hbv7d.hdv7d_ui.controller;
+    opens hbv7d.hdv7d_ui.controller to javafx.fxml;
 }
