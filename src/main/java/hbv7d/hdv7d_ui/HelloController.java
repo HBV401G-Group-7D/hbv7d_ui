@@ -1,5 +1,6 @@
 package hbv7d.hdv7d_ui;
 
+import hbv7d.api.Api;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
@@ -9,6 +10,8 @@ public class HelloController {
 
     @FXML
     protected void onHelloButtonClick() {
-        welcomeText.setText("Welcome to JavaFX Application!");
+        Api api = new Api();
+        System.out.println(api.Name());
+        welcomeText.setText(String.valueOf(api.Name()));
     }
 }
