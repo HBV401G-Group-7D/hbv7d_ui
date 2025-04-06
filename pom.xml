@@ -4,8 +4,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>hbv7d</groupId>
-    <artifactId>Hdv7d_ui</artifactId>
+    <groupId>HBV401G.Group.7_DayTour.Ui</groupId>
+    <artifactId>7_DayTour-ui</artifactId>
     <version>1.0-SNAPSHOT</version>
     <name>Hdv7d_ui</name>
 
@@ -39,9 +39,16 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>hbv7d_TourSystem</groupId>
-            <artifactId>hdv7d_main</artifactId>
+            <groupId>HBV401G.Group.DayTour7.main</groupId>
+            <artifactId>Group-DayTour7-main</artifactId>
+            <version>1.1-SNAPSHOT</version>
         </dependency>
+<!--        <dependency>-->
+<!--            <groupId>hbv7d.main</groupId>-->
+<!--            <artifactId>hbv7d</artifactId>-->
+<!--            <version>1.0-SNAPSHOT</version>-->
+<!--        </dependency>-->
+
     </dependencies>
 
     <build>
