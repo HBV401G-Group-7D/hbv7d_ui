@@ -4,8 +4,12 @@ package hbv7d.hdv7d_ui.view;
  * @author Almas Baimagambetov (almaslvl@gmail.com)
  */
 public enum View {
-    HEIMA("fxml/heima-view.fxml"),
-    LISTI("fxml/listi-view.fxml");
+
+    BOOKING("fxml/booking-view.fxml"),
+    COMPANY("fxml/company-view.fxml"),
+    MAIN("fxml/main-view.fxml"),
+    TOUR("tour-view.fxml"),
+    USER("fxml/user-view.fxml");
 
     private String fileName;
 
