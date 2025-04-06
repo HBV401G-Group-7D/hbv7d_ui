@@ -38,6 +38,10 @@
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>hbv7d_TourSystem</groupId>
+            <artifactId>hdv7d_main</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
