@@ -11,7 +11,9 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
+ * this class is used to switch between views <br>
  * @author Almas Baimagambetov (almaslvl@gmail.com)
+ *
  */
 public class ViewSwitcher {
 
@@ -23,6 +25,11 @@ public class ViewSwitcher {
         ViewSwitcher.scene = scene;
     }
 
+    /**
+     * this method is used to switch between Scenes
+     * @param view the view you want to choose from the enum in the view file
+     * @param isCache when you return to the view is it the same or does it get reset
+     */
     public static void switchTo(View view, boolean isCache) {
         if (scene == null) {
             System.out.println("No scene was set");
