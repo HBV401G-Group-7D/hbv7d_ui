@@ -3,6 +3,9 @@ module hbv7d.hdv7d_ui {
     requires javafx.fxml;
 //    requires hbv7d;
     requires Group.DayTour7.main;
+    //requires these packages
+    requires java.sql;
+//    requires sqlite-jdbc;
 
 
     opens hbv7d.hdv7d_ui to javafx.fxml;
