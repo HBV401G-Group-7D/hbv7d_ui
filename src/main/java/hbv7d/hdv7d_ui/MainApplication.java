@@ -16,9 +16,7 @@ public class MainApplication extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("hello-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 320, 240);
-        stage.setTitle("Hello!");
-        Api api = new Api();
-        System.out.println(api.Name());
+        stage.setTitle("Day Tour");
         stage.setScene(scene);
         stage.show();
 
