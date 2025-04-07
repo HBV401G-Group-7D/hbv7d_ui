@@ -4,6 +4,7 @@ To get the jar for the ui open the main project and then open the side pannel an
 ![image](https://github.com/user-attachments/assets/54ec4afc-90b4-4214-b105-6b1c5fc5a815)
 
 then check the version of the main project in the pom.xml file
+
 ![image](https://github.com/user-attachments/assets/9577926d-f184-4b6d-8cdc-f9d2ddf93939)
 
 and put the same version in the ui project (this project)
