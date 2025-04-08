@@ -36,8 +36,6 @@
 <?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.VBox?>
 
 <VBox prefHeight="400.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hbv7d.hdv7d_ui.controller.MainController">
@@ -62,22 +60,6 @@
                 <Button fx:id="byDuration" layoutX="478.0" layoutY="10.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="151.0" text="by duration" />
             </buttons>
         </ButtonBar>
-      <VBox fx:id="vBox">
-         <children>
-              <TableView fx:id="tourTable">
-                  <columns>
-                  <TableColumn prefWidth="75.0" text="name" />
-                      <TableColumn fx:id="date" prefWidth="75.0" text="Date" />
-                      <TableColumn fx:id="price" prefWidth="75.0" text="Price" />
-                      <TableColumn fx:id="group_size" prefWidth="75.0" text="Group size" />
-                      <TableColumn fx:id="seatsTaken" prefWidth="75.0" text="Seats taken" />
-                      <TableColumn fx:id="location" prefWidth="70.39996337890625" text="Location" />
-                      <TableColumn fx:id="pickUp" prefWidth="56.800048828125" text="Pick-up?" />
-                      <TableColumn fx:id="type" prefWidth="57.60003662109375" text="Type" />
-                      <TableColumn fx:id="difficulty" prefWidth="68.0" text="Difficulty" />
-                  </columns>
-              </TableView>
-         </children>
-      </VBox>
+      <VBox fx:id="vboxMain" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" />
     </children>
 </VBox>

@@ -11,6 +11,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
 import java.util.Date;
@@ -33,9 +34,10 @@ public class MainController {
 
     public TableView tourTable;
 
-    public TableView tab = new TableView<>();
+    public TableView<Tour> tab = new TableView<>();
 
-    public VBox vBox;
+    public VBox vboxMain;
+//    public Pane painMain;
 
 //    public TableColumn date;
 //    public TableColumn price;
@@ -47,10 +49,10 @@ public class MainController {
 //    public TableColumn difficulty;
 //    public TableColumn text;
 
-    public MainController(){
+    public void initialize(){
 
         Company company1 = new Company(1, "company1");
-        Tour tour = new Tour(
+        Tour tour_test = new Tour(
                 1,
                 "Tour 1",
                 "this is description",
@@ -64,47 +66,52 @@ public class MainController {
                 false,
                 company1
         );
-        addRow(tour);
-    }
 
-    private void addRow(){
+        System.out.println("seatsTaken = " + tour_test.getSeatsTaken());
+        makeTable();
 
-    }
 
-    public void makeTable(Tour tour){
+//        addRow(tour_test);
 
-        TableColumn nameColumn = new TableColumn(tour.getName());
-        nameColumn.setCellFactory(new PropertyValueFactory<>("name"));
 
-        TableColumn dateColumn = new TableColumn(tour.getDate().toString());
-        nameColumn.setCellFactory(new PropertyValueFactory<>("date"));
-
-        TableColumn priceColumn = new TableColumn(String.valueOf(tour.getPrice()));
-        nameColumn.setCellFactory(new PropertyValueFactory<>("price"));
-
-        TableColumn groupSizeColumn = new TableColumn(String.valueOf(tour.getGroupSize()));
-        nameColumn.setCellFactory(new PropertyValueFactory<>("groupSize"));
-
-        TableColumn seatsTakenColumn = new TableColumn(String.valueOf(tour.getSteatsTaken()));
-        nameColumn.setCellFactory(new PropertyValueFactory<>("seatsTaken"));
-
-        TableColumn locationColumn = new TableColumn(tour.getLocation());
-        nameColumn.setCellFactory(new PropertyValueFactory<>("location"));
-
-        TableColumn pickUpColumn = new TableColumn(String.valueOf(tour.isPickupService()));
-        nameColumn.setCellFactory(new PropertyValueFactory<>("pickupService"));
-
-        TableColumn typeColumn = new TableColumn(tour.getType());
-        nameColumn.setCellFactory(new PropertyValueFactory<>("name"));
-
-        TableColumn difficultyColumn = new TableColumn(tour.getDifficultyRating());
-        nameColumn.setCellFactory(new PropertyValueFactory<>("difficultyRating"));
-
-//        TableColumn nameColumn = new TableColumn(tour.getName());
-//        nameColumn.setCellFactory(new PropertyValueFactory<>("name"));
-        this.tab.getColumns().addAll(nameColumn,dateColumn,priceColumn,groupSizeColumn,seatsTakenColumn,locationColumn,pickUpColumn,typeColumn,difficultyColumn);
 
     }
+
+    private void addRow(Tour tour){
+        tab.getItems().add(tour);
+    }
+
+    public void makeTable() {
+        TableColumn<Tour, String> nameColumn = new TableColumn<>("Name");
+        nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+
+        TableColumn<Tour, Date> dateColumn = new TableColumn<>("Date");
+        dateColumn.setCellValueFactory(new PropertyValueFactory<>("date"));
+
+        TableColumn<Tour, Integer> priceColumn = new TableColumn<>("Price");
+        priceColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
+
+        TableColumn<Tour, Integer> groupSizeColumn = new TableColumn<>("Group size");
+        groupSizeColumn.setCellValueFactory(new PropertyValueFactory<>("groupSize"));
+
+        TableColumn<Tour, Integer> seatsTakenColumn = new TableColumn<>("Seats taken");
+        seatsTakenColumn.setCellValueFactory(new PropertyValueFactory<>("seatsTaken"));
+
+        TableColumn<Tour, String> locationColumn = new TableColumn<>("Location");
+        locationColumn.setCellValueFactory(new PropertyValueFactory<>("location"));
+
+        TableColumn<Tour, Boolean> pickUpColumn = new TableColumn<>("Pick up?");
+        pickUpColumn.setCellValueFactory(new PropertyValueFactory<>("pickupService"));
+
+        TableColumn<Tour, String> typeColumn = new TableColumn<>("Type");
+        typeColumn.setCellValueFactory(new PropertyValueFactory<>("type"));
+
+        tab.getColumns().addAll(nameColumn, dateColumn, priceColumn, groupSizeColumn,
+                seatsTakenColumn, locationColumn, pickUpColumn, typeColumn);
+
+        vboxMain.getChildren().add(tab);
+    }
+
 
     public void onConfirmBooking(ActionEvent actionEvent) {
     }
