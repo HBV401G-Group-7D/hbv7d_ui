@@ -40,39 +40,39 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox prefHeight="400.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hbv7d.hdv7d_ui.HelloController">
+<VBox prefHeight="400.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hbv7d.hdv7d_ui.controller.MainController">
     <children>
         <ButtonBar prefHeight="40.0" prefWidth="200.0">
             <buttons>
-                <Button mnemonicParsing="false" text="Confirm Booking" />
+                <Button fx:id="confirmBookingButton" mnemonicParsing="false" onAction="#onConfirmBooking" text="Confirm Booking" />
                 <Label text="D7 Main Page - Navigation" />
-                <Button mnemonicParsing="false" text="User page" />
-                <Button layoutX="666.0" layoutY="10.0" mnemonicParsing="false" text="Company page" />
+                <Button fx:id="userPageButton" mnemonicParsing="false" onAction="#onUserPage" text="User page" />
+                <Button fx:id="companyPageButton" layoutX="666.0" layoutY="10.0" mnemonicParsing="false" onAction="#onCompanyPage" text="Company page" />
             </buttons>
         </ButtonBar>
         <Separator prefHeight="40.0" prefWidth="800.0" />
         <ButtonBar layoutX="10.0" layoutY="10.0" prefHeight="40.0" prefWidth="200.0">
             <buttons>
                 <Label minWidth="38.0" prefHeight="18.0" text="Filters&amp;Ordering" />
-                <Button mnemonicParsing="false" text="Reset filters" />
-                <Button layoutX="704.0" layoutY="10.0" mnemonicParsing="false" text="by price" />
-                <Button layoutX="704.0" layoutY="10.0" mnemonicParsing="false" text="by group size" />
-                <Button layoutX="704.0" layoutY="10.0" mnemonicParsing="false" text="by location" />
-                <Button layoutX="735.0" layoutY="10.0" mnemonicParsing="false" text="by type" />
-                <Button layoutX="478.0" layoutY="10.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="151.0" text="by duration" />
+                <Button fx:id="resetFilters" mnemonicParsing="false" text="Reset filters" />
+                <Button fx:id="byPrice" layoutX="704.0" layoutY="10.0" mnemonicParsing="false" text="by price" />
+                <Button fx:id="byGroupSize" layoutX="704.0" layoutY="10.0" mnemonicParsing="false" text="by group size" />
+                <Button fx:id="byLocation" layoutX="704.0" layoutY="10.0" mnemonicParsing="false" text="by location" />
+                <Button fx:id="byType" layoutX="735.0" layoutY="10.0" mnemonicParsing="false" text="by type" />
+                <Button fx:id="byDuration" layoutX="478.0" layoutY="10.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="151.0" text="by duration" />
             </buttons>
         </ButtonBar>
         <TableView>
             <columns>
-                <TableColumn prefWidth="75.0" text="Date" />
-                <TableColumn prefWidth="75.0" text="Price" />
-                <TableColumn prefWidth="75.0" text="Group size" />
-                <TableColumn prefWidth="75.0" text="Seats taken" />
-                <TableColumn prefWidth="70.39996337890625" text="Location" />
-                <TableColumn prefWidth="56.800048828125" text="Pick-up?" />
-                <TableColumn prefWidth="57.60003662109375" text="Type" />
-                <TableColumn prefWidth="68.0" text="Difficulty" />
-                <TableColumn prefWidth="244.0" text="Text" />
+                <TableColumn fx:id="date" prefWidth="75.0" text="Date" />
+                <TableColumn fx:id="price" prefWidth="75.0" text="Price" />
+                <TableColumn fx:id="group_size" prefWidth="75.0" text="Group size" />
+                <TableColumn fx:id="seatsTaken" prefWidth="75.0" text="Seats taken" />
+                <TableColumn fx:id="location" prefWidth="70.39996337890625" text="Location" />
+                <TableColumn fx:id="pickUp" prefWidth="56.800048828125" text="Pick-up?" />
+                <TableColumn fx:id="type" prefWidth="57.60003662109375" text="Type" />
+                <TableColumn fx:id="difficulty" prefWidth="68.0" text="Difficulty" />
+                <TableColumn fx:id="text" prefWidth="244.0" text="Text" />
             </columns>
         </TableView>
     </children>
