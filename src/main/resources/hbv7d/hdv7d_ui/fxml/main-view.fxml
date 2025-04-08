@@ -62,18 +62,22 @@
                 <Button fx:id="byDuration" layoutX="478.0" layoutY="10.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="151.0" text="by duration" />
             </buttons>
         </ButtonBar>
-        <TableView>
-            <columns>
-                <TableColumn fx:id="date" prefWidth="75.0" text="Date" />
-                <TableColumn fx:id="price" prefWidth="75.0" text="Price" />
-                <TableColumn fx:id="group_size" prefWidth="75.0" text="Group size" />
-                <TableColumn fx:id="seatsTaken" prefWidth="75.0" text="Seats taken" />
-                <TableColumn fx:id="location" prefWidth="70.39996337890625" text="Location" />
-                <TableColumn fx:id="pickUp" prefWidth="56.800048828125" text="Pick-up?" />
-                <TableColumn fx:id="type" prefWidth="57.60003662109375" text="Type" />
-                <TableColumn fx:id="difficulty" prefWidth="68.0" text="Difficulty" />
-                <TableColumn fx:id="text" prefWidth="244.0" text="Text" />
-            </columns>
-        </TableView>
+      <VBox fx:id="vBox">
+         <children>
+              <TableView fx:id="tourTable">
+                  <columns>
+                  <TableColumn prefWidth="75.0" text="name" />
+                      <TableColumn fx:id="date" prefWidth="75.0" text="Date" />
+                      <TableColumn fx:id="price" prefWidth="75.0" text="Price" />
+                      <TableColumn fx:id="group_size" prefWidth="75.0" text="Group size" />
+                      <TableColumn fx:id="seatsTaken" prefWidth="75.0" text="Seats taken" />
+                      <TableColumn fx:id="location" prefWidth="70.39996337890625" text="Location" />
+                      <TableColumn fx:id="pickUp" prefWidth="56.800048828125" text="Pick-up?" />
+                      <TableColumn fx:id="type" prefWidth="57.60003662109375" text="Type" />
+                      <TableColumn fx:id="difficulty" prefWidth="68.0" text="Difficulty" />
+                  </columns>
+              </TableView>
+         </children>
+      </VBox>
     </children>
 </VBox>
