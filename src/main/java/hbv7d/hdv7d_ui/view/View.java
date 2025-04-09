@@ -8,8 +8,9 @@ public enum View {
     BOOKING("fxml/booking-view.fxml"),
     COMPANY("fxml/company-view.fxml"),
     MAIN("fxml/main-view.fxml"),
-    TOUR("tour-view.fxml"),
+    CREATE_TOUR("fxml/create_tour-view.fxml"),
     USER("fxml/user-view.fxml");
+
 
     private String fileName;
 
