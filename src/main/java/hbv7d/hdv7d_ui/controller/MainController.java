@@ -12,6 +12,7 @@ import hbv7d.model.User;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.VBox;
@@ -42,6 +43,7 @@ public class MainController {
 
     public static User currUser = new User(1, "user name", "email user"); //TODO make a selection panel to select user
 
+    public static Tour selectedTour;
 
     public void initialize(){
 
@@ -49,6 +51,19 @@ public class MainController {
         makeTable();
 
         addAllTourToTable();
+
+        tourTable.setRowFactory( tv -> {
+        TableRow<Tour> row = new TableRow<>();
+            row.setOnMouseClicked(event -> {
+                if (event.getClickCount() == 2 && (! row.isEmpty()) ) {
+                    selectedTour = row.getItem();
+//                    System.out.println(rowData);
+
+                    ViewSwitcher.switchTo_WithSize(View.TOUR, false, 800, 400);
+                }
+            });
+            return row ;
+        });
 
     }
 
