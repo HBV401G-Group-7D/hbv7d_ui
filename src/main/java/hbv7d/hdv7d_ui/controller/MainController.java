@@ -118,7 +118,7 @@ public class MainController {
     }
 
     public void onCompanyPage(ActionEvent actionEvent) {
-        ViewSwitcher.switchTo_WithSize(View.COMPANY, false, 600, 400);
+        ViewSwitcher.switchTo_WithSize(View.COMPANY, false, 700, 400);
     }
 
     //Það er innbyggt filters þannig ég nota það bara i guess.
