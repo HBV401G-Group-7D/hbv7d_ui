@@ -3,6 +3,7 @@ package hbv7d.hdv7d_ui.controller;
 import hbv7d.api.Api;
 import hbv7d.hdv7d_ui.view.View;
 import hbv7d.hdv7d_ui.view.ViewSwitcher;
+import hbv7d.model.Company;
 import hbv7d.model.Tour;
 import javafx.event.ActionEvent;
 import javafx.scene.control.TableColumn;
@@ -19,6 +20,8 @@ public class CompanyController {
     public TableView<Tour> tourTable = new TableView<>();
     public VBox vboxMain;
 
+    public static Company currCompany = new Company(1, "name");
+
 
     public void initialize(){
 
@@ -30,7 +33,7 @@ public class CompanyController {
     }
 
     private void addAllTourToTable(){
-        List<Tour> tours = Api.viewCompanyTours(1);
+        List<Tour> tours = Api.viewCompanyTours(currCompany.getCompanyId());
         tourTable.getItems().clear();
         tourTable.getItems().addAll(tours);
 
