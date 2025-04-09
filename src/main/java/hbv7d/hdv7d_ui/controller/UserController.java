@@ -4,8 +4,6 @@ import hbv7d.api.Api;
 import hbv7d.hdv7d_ui.view.View;
 import hbv7d.hdv7d_ui.view.ViewSwitcher;
 import hbv7d.model.Booking;
-import hbv7d.model.Tour;
-import hbv7d.model.User;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
@@ -21,7 +19,9 @@ public class UserController {
     public VBox vboxMain;
     public Label userLabel;
     public Label emailLabel;
-    private TableView<Booking> userTableView = new TableView<>();;
+    private TableView<Booking> bookingTableView = new TableView<>();;
+
+    public static Booking selectedBooking;
 
     public void initialize(){
         makeTable();
@@ -34,7 +34,7 @@ public class UserController {
 
     private void addAllBookngToTabel() {
         List<Booking> bookings = Api.viewBookings(MainController.currUser.getUserId());
-        userTableView.getItems().addAll(bookings);
+        bookingTableView.getItems().addAll(bookings);
     }
 
     public void makeTable() {
@@ -44,9 +44,9 @@ public class UserController {
         TableColumn<Booking, Date> statusColumn = new TableColumn<>("Status");
         statusColumn.setCellValueFactory(new PropertyValueFactory<>("status"));
 
-        userTableView.getColumns().addAll(nameColumn, statusColumn);
+        bookingTableView.getColumns().addAll(nameColumn, statusColumn);
 
-        vboxMain.getChildren().add(userTableView);
+        vboxMain.getChildren().add(bookingTableView);
     }
 
     public void onBack(ActionEvent actionEvent) {
@@ -54,5 +54,10 @@ public class UserController {
     }
 
     public void onViewBooking(ActionEvent actionEvent) {
+        selectedBooking = bookingTableView.getSelectionModel().getSelectedItem();
+        if (selectedBooking != null){
+            ViewSwitcher.switchTo_WithSize(View.BOOKING, false, 600, 400);
+        }
+
     }
 }
