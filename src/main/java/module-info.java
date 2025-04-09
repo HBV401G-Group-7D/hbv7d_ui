@@ -5,6 +5,7 @@ module hbv7d.hdv7d_ui {
     requires Group.DayTour7.main;
     //requires these packages
     requires java.sql;
+    requires java.desktop;
 //    requires sqlite-jdbc;
 
 
