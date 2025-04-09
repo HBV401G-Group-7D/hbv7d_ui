@@ -121,22 +121,64 @@ public class MainController {
         ViewSwitcher.switchTo_WithSize(View.COMPANY, false, 600, 400);
     }
 
-    public void onResetFilters(ActionEvent actionEvent) {
 
+
+
+
+    //Það er innbyggt filters þannig ég nota það bara i guess.
+    public void onResetFilters(ActionEvent actionEvent) {
+        tourTable.getSortOrder().clear();
+        tourTable.getItems().clear();
+        addAllTourToTable();
     }
 
     public void onByPrice(ActionEvent actionEvent) {
+        tourTable.getSortOrder().clear();
+        for (TableColumn<Tour, ?> col : tourTable.getColumns()) {
+            if ("Price".equals(col.getText())) {
+                tourTable.getSortOrder().add(col);
+                break;
+            }
+        }
     }
 
     public void onByGroupSize(ActionEvent actionEvent) {
+        tourTable.getSortOrder().clear();
+        for (TableColumn<Tour, ?> col : tourTable.getColumns()) {
+            if ("Group size".equals(col.getText())) {
+                tourTable.getSortOrder().add(col);
+                break;
+            }
+        }
     }
 
     public void onByLocation(ActionEvent actionEvent) {
+        tourTable.getSortOrder().clear();
+        for (TableColumn<Tour, ?> col : tourTable.getColumns()) {
+            if ("Location".equals(col.getText())) {
+                tourTable.getSortOrder().add(col);
+                break;
+            }
+        }
     }
 
     public void onByType(ActionEvent actionEvent) {
+        tourTable.getSortOrder().clear();
+        for (TableColumn<Tour, ?> col : tourTable.getColumns()) {
+            if ("Type".equals(col.getText())) {
+                tourTable.getSortOrder().add(col);
+                break;
+            }
+        }
     }
 
     public void onByDuration(ActionEvent actionEvent) {
+        tourTable.getSortOrder().clear();
+        for (TableColumn<Tour, ?> col : tourTable.getColumns()) {
+            if ("Duration".equals(col.getText())) {
+                tourTable.getSortOrder().add(col);
+                break;
+            }
+        }
     }
 }
