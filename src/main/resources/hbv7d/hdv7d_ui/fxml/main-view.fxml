@@ -32,6 +32,7 @@
   OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.Label?>
@@ -40,24 +41,27 @@
 
 <VBox prefHeight="400.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hbv7d.hdv7d_ui.controller.MainController">
     <children>
-        <ButtonBar prefHeight="40.0" prefWidth="200.0">
+        <ButtonBar nodeOrientation="LEFT_TO_RIGHT" prefHeight="40.0" VBox.vgrow="NEVER">
             <buttons>
-                <Button fx:id="confirmBookingButton" mnemonicParsing="false" onAction="#onConfirmBooking" text="Confirm Booking" />
-                <Label text="D7 Main Page - Navigation" />
-                <Button fx:id="userPageButton" mnemonicParsing="false" onAction="#onUserPage" text="User page" />
-                <Button fx:id="companyPageButton" layoutX="666.0" layoutY="10.0" mnemonicParsing="false" onAction="#onCompanyPage" text="Company page" />
+                <Button fx:id="confirmBookingButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onConfirmBooking" text="Confirm Booking" />
+                <Label alignment="CENTER" text="D7 Main Page - Navigation" />
+                <Button fx:id="userPageButton" alignment="CENTER" mnemonicParsing="false" onAction="#onUserPage" text="User page" />
+                <Button fx:id="companyPageButton" alignment="CENTER" layoutX="666.0" layoutY="10.0" mnemonicParsing="false" onAction="#onCompanyPage" text="Company page" />
             </buttons>
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
         </ButtonBar>
         <Separator prefHeight="40.0" prefWidth="800.0" />
         <ButtonBar layoutX="10.0" layoutY="10.0" prefHeight="40.0" prefWidth="200.0">
             <buttons>
                 <Label minWidth="38.0" prefHeight="18.0" text="Filters&amp;Ordering" />
-                <Button fx:id="resetFilters" mnemonicParsing="false" text="Reset filters" />
-                <Button fx:id="byPrice" layoutX="704.0" layoutY="10.0" mnemonicParsing="false" text="by price" />
-                <Button fx:id="byGroupSize" layoutX="704.0" layoutY="10.0" mnemonicParsing="false" text="by group size" />
-                <Button fx:id="byLocation" layoutX="704.0" layoutY="10.0" mnemonicParsing="false" text="by location" />
-                <Button fx:id="byType" layoutX="735.0" layoutY="10.0" mnemonicParsing="false" text="by type" />
-                <Button fx:id="byDuration" layoutX="478.0" layoutY="10.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="151.0" text="by duration" />
+                <Button fx:id="resetFilters" mnemonicParsing="false" onAction="#onResetFilters" text="Reset filters" />
+                <Button fx:id="byPrice" layoutX="704.0" layoutY="10.0" mnemonicParsing="false" onAction="#onByPrice" text="by price" />
+                <Button fx:id="byGroupSize" layoutX="704.0" layoutY="10.0" mnemonicParsing="false" onAction="#onByGroupSize" text="by group size" />
+                <Button fx:id="byLocation" layoutX="704.0" layoutY="10.0" mnemonicParsing="false" onAction="#onByLocation" text="by location" />
+                <Button fx:id="byType" layoutX="735.0" layoutY="10.0" mnemonicParsing="false" onAction="#onByType" text="by type" />
+                <Button fx:id="byDuration" layoutX="478.0" layoutY="10.0" mnemonicParsing="false" onAction="#onByDuration" prefHeight="26.0" prefWidth="151.0" text="by duration" />
             </buttons>
         </ButtonBar>
       <VBox fx:id="vboxMain" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" />

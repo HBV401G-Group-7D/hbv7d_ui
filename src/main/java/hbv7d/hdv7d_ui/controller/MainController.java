@@ -3,18 +3,20 @@ package hbv7d.hdv7d_ui.controller;
 
 import hbv7d.hdv7d_ui.view.View;
 import hbv7d.hdv7d_ui.view.ViewSwitcher;
+import hbv7d.main.Main;
+import hbv7d.model.Booking;
 import hbv7d.model.Company;
 import hbv7d.model.Tour;
-import javafx.collections.ObservableList;
+import hbv7d.model.User;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
 import java.util.Date;
+import java.util.List;
 
 import static hbv7d.hdv7d_ui.Global.api;
 
@@ -32,11 +34,12 @@ public class MainController {
     public Button byType;
     public Button byDuration;
 
-    public TableView tourTable;
 
-    public TableView<Tour> tab = new TableView<>();
+    public TableView<Tour> tourTable = new TableView<>();
 
     public VBox vboxMain;
+
+    public static User currUser = new User(1, "user name", "email user");
 //    public Pane painMain;
 
 //    public TableColumn date;
@@ -51,34 +54,46 @@ public class MainController {
 
     public void initialize(){
 
-        Company company1 = new Company(1, "company1");
-        Tour tour_test = new Tour(
-                1,
-                "Tour 1",
-                "this is description",
-                "this is a location",
-                20,
-                new Date(),
-                20,
-                32,
-                "this is a difficultyRating",
-                "this is a type",
-                false,
-                company1
-        );
+//        Company company1 = new Company(1, "company1");
+//        Tour tour_test = new Tour(
+//                1,
+//                "Tour 1",
+//                "this is description",
+//                "this is a location",
+//                20,
+//                new Date(),
+//                20,
+//                32,
+//                "this is a difficultyRating",
+//                "this is a type",
+//                false,
+//                company1
+//        );
+//
+//        System.out.println("seatsTaken = " + tour_test.getSeatsTaken());
 
-        System.out.println("seatsTaken = " + tour_test.getSeatsTaken());
+
+
+        Main.start();
         makeTable();
 
-
+//        api.createUser(currUser);
 //        addRow(tour_test);
 
 
+        addAllTourToTable();
 
+        System.out.println(tourTable.getColumns().size());
+    }
+
+    private void addAllTourToTable(){
+        List<Tour> tours = api.viewAllATours();
+
+        tourTable.getItems().addAll(tours);
     }
 
     private void addRow(Tour tour){
-        tab.getItems().add(tour);
+        tourTable.getItems().add(tour);
     }
 
     public void makeTable() {
@@ -106,14 +121,30 @@ public class MainController {
         TableColumn<Tour, String> typeColumn = new TableColumn<>("Type");
         typeColumn.setCellValueFactory(new PropertyValueFactory<>("type"));
 
-        tab.getColumns().addAll(nameColumn, dateColumn, priceColumn, groupSizeColumn,
+        tourTable.getColumns().addAll(nameColumn, dateColumn, priceColumn, groupSizeColumn,
                 seatsTakenColumn, locationColumn, pickUpColumn, typeColumn);
 
-        vboxMain.getChildren().add(tab);
+        vboxMain.getChildren().add(tourTable);
     }
 
 
     public void onConfirmBooking(ActionEvent actionEvent) {
+        Tour tour = tourTable.getSelectionModel().getSelectedItem();
+//        User user = new User(1, "user name", "email user");
+//
+//        System.out.println(tour.getTourId());
+//        Booking booking = new Booking(user.getUserId(), tour.getTourId());
+//        user.addBooking(booking);
+//        System.out.println(user.getBookings());
+        if (tour != null){
+            System.out.println(currUser.getUserId());
+           System.out.println(api.makeBooking(currUser.getUserId(), tour.getTourId()));
+           currUser = api.getUser(currUser.getUserId());
+
+
+           System.out.println(currUser.getBookings());
+           System.out.println(api.viewBookings(currUser.getUserId()));
+        }
     }
 
     public void onUserPage(ActionEvent actionEvent) {
@@ -122,5 +153,23 @@ public class MainController {
 
     public void onCompanyPage(ActionEvent actionEvent) {
         ViewSwitcher.switchTo_WithSize(View.COMPANY, false, 600, 400);
+    }
+
+    public void onResetFilters(ActionEvent actionEvent) {
+    }
+
+    public void onByPrice(ActionEvent actionEvent) {
+    }
+
+    public void onByGroupSize(ActionEvent actionEvent) {
+    }
+
+    public void onByLocation(ActionEvent actionEvent) {
+    }
+
+    public void onByType(ActionEvent actionEvent) {
+    }
+
+    public void onByDuration(ActionEvent actionEvent) {
     }
 }
