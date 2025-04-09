@@ -1,6 +1,7 @@
 package hbv7d.hdv7d_ui.controller;
 
 
+import hbv7d.api.Api;
 import hbv7d.hdv7d_ui.view.View;
 import hbv7d.hdv7d_ui.view.ViewSwitcher;
 import hbv7d.main.Main;
@@ -39,55 +40,20 @@ public class MainController {
 
     public VBox vboxMain;
 
-    public static User currUser = new User(1, "user name", "email user");
-//    public Pane painMain;
+    public static User currUser = new User(1, "user name", "email user"); //TODO make a selection panel to select user
 
-//    public TableColumn date;
-//    public TableColumn price;
-//    public TableColumn group_size;
-//    public TableColumn seatsTaken;
-//    public TableColumn location;
-//    public TableColumn pickUp;
-//    public TableColumn type;
-//    public TableColumn difficulty;
-//    public TableColumn text;
 
     public void initialize(){
 
-//        Company company1 = new Company(1, "company1");
-//        Tour tour_test = new Tour(
-//                1,
-//                "Tour 1",
-//                "this is description",
-//                "this is a location",
-//                20,
-//                new Date(),
-//                20,
-//                32,
-//                "this is a difficultyRating",
-//                "this is a type",
-//                false,
-//                company1
-//        );
-//
-//        System.out.println("seatsTaken = " + tour_test.getSeatsTaken());
-
-
-
-        Main.start();
+        Api api = new Api();
         makeTable();
-
-//        api.createUser(currUser);
-//        addRow(tour_test);
-
 
         addAllTourToTable();
 
-        System.out.println(tourTable.getColumns().size());
     }
 
     private void addAllTourToTable(){
-        List<Tour> tours = api.viewAllATours();
+        List<Tour> tours = Api.viewAllATours();
 
         tourTable.getItems().addAll(tours);
     }
@@ -138,12 +104,12 @@ public class MainController {
 //        System.out.println(user.getBookings());
         if (tour != null){
             System.out.println(currUser.getUserId());
-           System.out.println(api.makeBooking(currUser.getUserId(), tour.getTourId()));
-           currUser = api.getUser(currUser.getUserId());
+           System.out.println(Api.makeBooking(currUser.getUserId(), tour.getTourId()));
+           currUser = Api.getUser(currUser.getUserId());
 
 
            System.out.println(currUser.getBookings());
-           System.out.println(api.viewBookings(currUser.getUserId()));
+           System.out.println(Api.viewBookings(currUser.getUserId()));
         }
     }
 
@@ -156,6 +122,7 @@ public class MainController {
     }
 
     public void onResetFilters(ActionEvent actionEvent) {
+
     }
 
     public void onByPrice(ActionEvent actionEvent) {
