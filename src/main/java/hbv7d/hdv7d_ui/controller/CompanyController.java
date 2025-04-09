@@ -87,7 +87,7 @@ public class CompanyController {
 
 
     public void onCreateTour(ActionEvent actionEvent){
-        ViewSwitcher.switchTo_WithSize(View.CREATE_TOUR, false, 400, 300);
+        ViewSwitcher.switchTo_WithSize(View.CREATE_TOUR, false, 800, 600);
     }
 
 
